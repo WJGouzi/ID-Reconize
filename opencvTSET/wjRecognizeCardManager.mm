@@ -72,14 +72,12 @@
     for ( ; itContours != contours.end(); ++itContours) {
         cv::Rect rect = cv::boundingRect(*itContours);
         nameRects.push_back(rect);
-        //算法原理
+        //算法原理、 仅供参考，没有准确的计算
         if (rect.width > rect.height && rect.width < rect.height * 4) {
             nameRect = rect;
         }
     }
-    
-    // 地址: rect.width > nameRect.width && rect.width > rect.height && rect.width < rect.height * 4
-    // 姓名: rect.width > rect.height && rect.width < rect.height * 4
+   
     
     //身份证名字定位失败
     if (nameRect.width == 0 || nameRect.height == 0) {
